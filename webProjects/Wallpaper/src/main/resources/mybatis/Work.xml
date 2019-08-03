@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Work">
+  <resultMap id="sumList" type="java.util.HashMap">
+    <result property="workCount" column="workCount"/>
+    <result property="viewCount" column="viewCount"/>
+  </resultMap>
+	<select id="getAllWorkList" resultType="Work">
+		SELECT * FROM work WHERE workStatus = 'y'
+	</select>
+	<select id="getAllSelectWorkList" parameterType="map" resultType="Work">
+		SELECT * FROM work WHERE workStatus = 'y' AND workTitle LIKE '%' || #{workTitle} || '%'
+	</select>
+	<select id="getAllTagSelectWorkList" parameterType="map" resultType="Work">
+		SELECT * FROM work WHERE workStatus = 'y' AND workTag LIKE '%' || #{workTitle} || '%'
+	</select>
+	<select id="getAllCreatorSelectWorkList" parameterType="map" resultType="Work">
+		SELECT * FROM work WHERE workStatus = 'y' AND emailId LIKE '%' || #{workTitle} || '%'
+	</select>
+	<select id="getWorkList" parameterType="Member" resultType="Work">
+		SELECT * FROM work WHERE emailId = #{emailId}
+	</select>
+	<select id="getSumList" parameterType="String" resultMap="sumList">
+		SELECT COUNT(*) AS workCount, SUM(workView) AS viewCount FROM work WHERE emailId = #{emailId}
+	</select>
+	<select id="getWorkViewCount" parameterType="String" resultType="Integer">
+		SELECT workView FROM work WHERE workNum = #{workNum}
+	</select>
+	<select id="getWork" parameterType="String" resultType="Work">
+		SELECT * FROM work WHERE workNum = #{workNum}
+	</select>
+	<insert id="createWork" parameterType="Work">
+		INSERT INTO work
+		VALUES (#{workNum}, #{workTitle}, #{work}, SYSDATE, #{workDesc}, #{workStatus}, #{workTag}, 0, #{workPrice}, #{emailId})
+	</insert>
+	<update id="updateView" parameterType="String">
+		UPDATE work SET workView = workView + 1 WHERE workNum = #{workNum}
+	</update>
+	<update id="updateWork" parameterType="Work">
+		UPDATE work
+		SET workTitle = #{workTitle}, workDesc = #{workDesc}, workStatus = #{workStatus}, workTag = #{workTag}, workPrice = #{workPrice}
+		WHERE workNum = #{workNum}
+	</update>
+</mapper>

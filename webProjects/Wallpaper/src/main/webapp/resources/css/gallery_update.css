@@ -1,0 +1,218 @@
+/* 갤러리 hover  */
+a[href="#update"]:hover {
+    background-color: rgba(255, 255, 255, 0.116);
+}
+/* 클릭시 나타나는 상세 갤러리 */
+
+.update_background {
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.update_background > .cancle {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+}
+.update_content {
+position: absolute;
+width: 500px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+border-radius: 20px;
+}
+/* 상세 타이틀 */
+.update_title {
+display: flex;
+align-items: center;
+}
+#updateworkTitle {
+flex: 1;
+margin: 30px 40px;
+font-size: 1.2rem;
+color: #808080;
+border: none;
+}
+.update_title > input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+.update_title > label {
+display: block;
+flex-basis:30px;
+margin-right: 40px;
+justify-content: flex-end;
+filter: grayscale(100) opacity(0.6);
+}
+.update_title > label > img {
+width: 30px;
+}
+input#like_click:checked + label,
+input#buy_click:checked + label {
+filter: opacity(1);
+}
+/* 상세 이미지 */
+.update_img {
+    margin-bottom: 20px;
+}
+.update_img > img {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+    max-height: 100%;
+}
+/* 상세 태그 목록 */
+#updateworkTag {
+	display: block;
+    height: 60px;
+	width: 420px;
+    margin: 10px 40px;
+    border: none;
+}
+/* 상세 설명 */
+.update_spec {
+display: grid;
+grid-template-columns: 1fr 270px;
+grid-template-rows: 60px;
+grid-template-areas: 
+    "update_artist update_degrees ";
+font-size: 0.9rem;
+align-items: center;
+margin: 10px 20px;
+}
+/* 상세설명 좌측 */
+.update_artist {
+    grid-area: update_artist;
+    padding: 10px 20px;
+    height: 40px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 40px;
+}
+#updateworkUsername {
+    grid-column-start: 2;
+    align-self: center;
+    justify-self: center;
+}
+#updateworkCreator {
+    grid-column-start: 1;    
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+/* 상세설명 우측 */
+.update_degrees {
+    grid-area: update_degrees;
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 26px 26px;
+    grid-template-areas: 
+    "date price reply"
+    "view like buy";
+}
+.update_degrees > div {
+    filter: grayscale(80) opacity(0.7);
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    }
+.update_degrees > div > img {
+    display: inline-block;
+    width: 20px;
+    height: 18px;
+    padding: 4px 5px 4px 0;
+}
+.update_degrees > div > span { align-self: center;}
+.desc_date {grid-area: date;}
+.desc_price {grid-area: price;}
+.desc_reply {grid-area: reply;}
+.desc_view {grid-area: view;}
+.desc_like {grid-area: like;}
+.desc_buy {grid-area: buy;}
+/* 댓글 쓰는 공간 */
+.update_reply_write {
+    display: flex;
+    position: relative;
+}
+.update_reply_write > textarea {
+    display: block;
+    resize: none;
+    outline: none;
+    text-align: center;
+    border-radius: 10px;
+    width: 420px;
+    height: 60px;
+    padding: 10px 80px 10px 20px;
+    box-sizing: border-box;
+    margin: 10px auto;
+    border: none;
+    background-color: #ebebeb;
+    line-height: 1.3rem;
+    font-size: 1rem;
+}
+.update_reply_write > textarea::placeholder {
+    line-height: 40px;
+}
+.update_reply_write > textarea:focus::placeholder,
+.update_reply_write > textarea::-webkit-scrollbar {
+    visibility: hidden;
+}
+.update_reply_write > label {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background-color: #9dadc4;
+    width: 60px;
+    height: 60px;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+.update_reply_write > label > img {
+    height: 26px;
+    width: 30px;
+    padding: 17px 15px;
+}
+/* 댓글목록 */
+.reply_content {
+    margin-bottom: 20px;
+}
+.reply_content > div {
+    display: grid;
+    grid-column-start: 1;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: minmax(40px, 1fr);
+    grid-template-areas:
+        "profile reply_content";
+    padding: 20px 0;
+    margin: 0 40px;
+    border-bottom: 0.5px solid #c4c4c4;
+    justify-items: center;
+}
+.reply_content > div:last-child {
+    border: none;
+}
+.reply_content > div > img {
+    display: block;
+    grid-area: profile;
+    width: 40px;
+    height: 40px;
+    align-self: center;
+}
+.reply_content > div > span {
+    display: block;
+    grid-area: reply_content;
+    align-self: center;
+    font-size: 0.9rem;
+    color: #585858;
+}
+#update:hover {
+	cursor: pointer;
+}

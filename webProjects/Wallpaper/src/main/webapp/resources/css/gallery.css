@@ -1,0 +1,19 @@
+/* 본문 갤러리  */
+.gallery::-webkit-scrollbar {
+    visibility: hidden;
+}
+.gallery {
+    flex: 1;
+    column-width: 250px;
+    column-gap: 20px;
+    padding: 40px 20px 0 20px;
+    height: 100%;
+}
+.gallery > img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.gallery > img:hover {
+	cursor: pointer;
+}

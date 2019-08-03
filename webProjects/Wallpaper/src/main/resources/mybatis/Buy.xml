@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Buy">
+  <resultMap id="buyList" type="java.util.HashMap">
+  	<result property="work" column="work"/>
+    <result property="workTitle" column="workTitle"/>
+    <result property="workNum" column="workNum"/>
+  </resultMap>
+	<select id="getBuyList" parameterType="Member" resultMap="buyList">
+		SELECT w.work AS work, w.workTitle AS workTitle, w.workNum AS workNum FROM work w, buy b
+		WHERE w.workNum = b.workNum AND b.emailId = #{emailId}
+	</select>
+	<select id="getSumBuy" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM buy b, work w, member m
+		WHERE b.workNum = w.workNum AND w.emailId = m.emailId
+		AND w.emailId = #{emailId} 
+	</select>
+	<select id="getBuyCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM buy WHERE workNum = #{workNum}
+	</select>
+	<select id="getBuy" parameterType="map" resultType="Integer">
+		SELECT COUNT(*) FROM buy WHERE workNum = #{workNum} AND emailId = #{sessionEmailId}
+	</select>
+	<insert id="createBuy" parameterType="map">
+		INSERT INTO buy VALUES (#{workNum}, #{sessionEmailId}, SYSDATE, #{workPrice})
+	</insert>
+</mapper>

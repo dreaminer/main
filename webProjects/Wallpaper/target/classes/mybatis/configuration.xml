@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.java.wp.model.Member" alias="Member"/>
+		<typeAlias type="com.java.wp.model.Work" alias="Work"/>
+		<typeAlias type="com.java.wp.model.Buy" alias="Buy"/>
+		<typeAlias type="com.java.wp.model.Followship" alias="Followship"/>
+		<typeAlias type="com.java.wp.model.Like" alias="Like"/>
+		<typeAlias type="com.java.wp.model.Reply" alias="Reply"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/Member.xml"/>
+		<mapper resource="mybatis/Work.xml"/>
+		<mapper resource="mybatis/Buy.xml"/>
+		<mapper resource="mybatis/Followship.xml"/>
+		<mapper resource="mybatis/Like.xml"/>
+		<mapper resource="mybatis/Reply.xml"/>
+	</mappers>
+</configuration>

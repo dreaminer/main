@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Reply">
+	<select id="getReplyList" parameterType="Member" resultType="Reply">
+		SELECT * FROM reply WHERE emailId = #{emailId}
+	</select>
+	<select id="getReply" parameterType="String" resultType="Reply">
+		SELECT r.reNum, r.emailId, r.reReg, r.reContent, r.workNum, m.profile
+		FROM reply r, member m WHERE workNum = #{workNum} AND r.emailId = m.emailId
+	</select>
+	<select id="getSumReply" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM work w, reply r, member m
+		WHERE w.workNum = r.workNum AND w.emailID = m.emailID
+		AND w.emailID = #{emailId}
+	</select>
+	<select id="getReplyCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM reply WHERE workNum = #{workNum}
+	</select>
+	<insert id="createReply" parameterType="Reply">
+		INSERT INTO reply
+		VALUES (#{reNum}, #{emailId}, SYSDATE, #{reContent}, #{workNum})
+	</insert>
+</mapper>

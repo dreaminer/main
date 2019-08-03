@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Like">
+  <resultMap id="likeList" type="java.util.HashMap">
+  	<result property="workNum" column="workNum"/>
+    <result property="work" column="work"/>
+    <result property="workTitle" column="workTitle"/>
+  </resultMap>
+	<select id="getLikeList" parameterType="Member" resultMap="likeList">
+		SELECT work, w.workNum AS workNum, workTitle FROM bookmark b, work w WHERE b.WORKNUM = w.WORKNUM AND b.id = #{emailId}
+	</select>
+	<select id="getSumLike" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM bookmark b, work w, member m
+		WHERE b.workNum = w.workNum AND w.emailId = m.emailId
+		AND w.emailId = #{emailId}
+	</select>
+	<select id="getLikeCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM bookmark WHERE workNum = #{workNum}
+	</select>
+	<select id="getLike" parameterType="map" resultType="Integer">
+		SELECT COUNT(*) FROM bookmark WHERE workNum = #{workNum} AND id = #{sessionEmailId}
+	</select>
+	<delete id="deleteLike" parameterType="map">
+		DELETE FROM bookmark WHERE workNum = #{workNum} AND id = #{sessionEmailId} 
+	</delete>
+	<insert id="createLike" parameterType="map">
+		INSERT INTO bookmark VALUES (#{workNum}, #{sessionEmailId})
+	</insert>
+</mapper>

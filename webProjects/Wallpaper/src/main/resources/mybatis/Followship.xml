@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Followship">
+  <resultMap id="followList" type="java.util.HashMap">
+  	<result property="followee" column="followee"/>
+    <result property="profile" column="profile"/>
+    <result property="userName" column="userName"/>
+  </resultMap>
+	<select id="getFollowshipList" parameterType="Member" resultType="Followship">
+		SELECT * FROM followship WHERE follower = #{emailId}
+	</select>
+	<select id="getFollowerSum" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM followship WHERE followee = #{emailId}
+	</select>
+	<select id="getFollowship" parameterType="map" resultType="Integer">
+		SELECT COUNT(*) FROM followship WHERE follower = #{sessionEmailId} AND followee = #{emailId}
+	</select>
+	<delete id="deleteFollow" parameterType="map">
+		DELETE FROM followship WHERE follower = #{sessionEmailId} AND followee = #{emailId} 
+	</delete>
+	<insert id="createFollow" parameterType="map">
+		INSERT INTO followship VALUES (#{emailId}, #{sessionEmailId})
+	</insert>
+	<select id="getFollowList" parameterType="Member" resultMap="followList">
+		SELECT followee, profile, userName FROM followship f, member m 
+		WHERE f.FOLLOWEE = m.EMAILID AND f.FOLLOWER = #{emailId}
+	</select>
+</mapper>

@@ -1,0 +1,99 @@
+#infoTabContent {
+	display: none;
+	height: 100vh;
+	width: 300px;
+	background-color: white;
+	border-right: 0.5px solid #dadfe8;
+	border-radius: 0 20px 20px 0;
+}
+#infoTabContainer {
+    display: grid;
+    align-self: center;
+}
+#infoTabForm {
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    grid-gap: 20px;
+}
+.user_profile {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+}
+.user_email {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.badge {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.badge > span {
+    display: inline-block;
+    background-color: #e7bf3d;
+    color: #222222;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.user_nickname > input,
+.pw > input,
+.pwchange > input,
+.pwcheck > input {
+    width: 200px;
+    line-height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+}
+.pw {
+    position: relative;
+}
+
+.pw > label {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 200px;
+    height: 30px;
+}
+.pw > label {
+    position: absolute;
+    display: block;
+    top: 0;
+    width: 200px;
+    height: 30px;
+}
+.pw > div > div {
+    margin: 20px 0;
+    font-size: 0.8rem;
+}
+.pw > div > div > input:focus::placeholder {
+    visibility: hidden;
+}
+.pw > div > div > input {
+    color: #c0a035;
+}
+#changePwBox {
+	display: none;
+}
+#changePwButton {
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.7rem;
+}
+#infoTabcreateDate {
+	font-size: 0.8rem;
+}

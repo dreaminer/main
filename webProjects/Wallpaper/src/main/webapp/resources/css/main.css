@@ -1,0 +1,45 @@
+@import url("normalizer.css");
+@import url("controlBox.css");
+@import url("nav.css");
+@import url("sign.css");
+@import url("gallery.css");
+@import url("gallery_detail.css");
+@import url('https://fonts.googleapis.com/css?family=Hind+Madurai&display=swap');
+
+@keyframes setting_popup {
+    from {right: 0px; z-index: -1;}
+    to {top: -22px; z-index: -1;}
+}
+@keyframes detail_popup {
+    from {flex: 0;}
+    to {flex: 1;}
+}
+body {
+    font-family: 'Hind Madurai', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+.trigger {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    padding: 30px;
+}
+.trigger > img {
+    width: 100%;
+    height: 100%;
+}
+.search_N_gallery {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+a[href="#detail"] > img:hover {
+    filter: brightness(1.2) saturate(1);
+}
+.work:hover {
+	cursor: pointer;
+}

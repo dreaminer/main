@@ -1,0 +1,140 @@
+#uploadTabContent {
+	width: 300px;
+    display: none;
+    background-color: #ffffff;
+    border-right: 0.5px solid #dadfe8;
+	border-radius: 0 20px 20px 0;
+}
+#uploadTabContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+}
+#uploadTabForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "workTitle workTitle"
+        "workImg workImg"
+        "workTag workTag"
+        "workDesc workDesc"
+        "workPrice workPrice"
+        "workP workP"
+        "submit submit";
+    margin: 0 40px;
+}
+#uploadTabForm > input[type="file"] {
+    -webkit-appearance: none;
+    position: absolute;
+}
+#uploadTabForm > input {
+    text-align: center;
+}
+input[name="workTitle"] { grid-area: workTitle; }
+label[for="uploadWork"] { grid-area: workImg; }
+input[name="workTag"] { grid-area: workTag; }
+input[name="workDesc"] { grid-area: workDesc; }
+input[name="workPrice"] { grid-area: workPrice; }
+#uploadTabForm > .workP {grid-area: workP }
+#uploadTabButton { grid-area: submit;}
+
+#uploadTabForm > input::placeholder,
+#uploadTabForm > div > input::placeholder {
+    color: black;
+}
+#uploadTabForm > input:focus::placeholder,
+#uploadTabForm > div > input:focus::placeholder {
+    visibility: hidden;
+}
+
+input[name="workTitle"] {
+    padding: 10px;
+    height: 30px;
+    border: none;
+    background-color: #c9d3ee;
+    border-radius: 10px 10px 0 0;
+    outline: none;
+}
+label[for="uploadWork"] {
+    background-color: #e6e6e6;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+}
+input[name="workTag"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background-color: #c9d3ee;
+    padding: 10px;
+}
+input[name="workDesc"] {
+    border: none;
+    outline: none;
+    height: 60px;
+    background-color: #e6e6e6;
+    padding: 10px;
+}
+input[name="workPrice"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[name="workPrice"] {
+    border: none;
+    outline: none;
+    background-color: #c9d3ee;
+    height: 20px;
+    padding: 10px;
+}
+.workP {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+label[for="workPublic"],
+label[for="workPrivate"] {
+    display: block;
+    text-align: center;
+    height: 50px;
+    background-color: #e6e6e6;
+}
+label[for="workPublic"] > img,
+label[for="workPrivate"] > img {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    filter: grayscale(1);
+    padding: 10px 0;
+}
+#workPublic:checked + label > img,
+#workPrivate:checked + label > img {
+    filter: grayscale(0);
+}
+#uploadTabButton {
+	border: none;
+	border-radius: 0px 0px 10px 10px;
+	height: 50px;
+	background-color: #c9d3ee;
+}
+#uploadTabButton:hover {
+	cursor: pointer;
+}
+#uploadTabImgArea {
+	width: 220px;
+	display: flex;
+	text-align: center;
+}
+#uploadTabImg {
+	display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    align-self: center;
+}
+#uploadWork,
+#workPublic,
+#workPrivate,
+#workStatus {
+	position: absolute;
+	visibility: hidden;
+}

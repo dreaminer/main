@@ -1,0 +1,110 @@
+#creatorTabContent {
+	width: 300px;
+    display: none;
+    background-color: #ffffff;
+    border-right: 0.5px solid #dadfe8;
+	border-radius: 0 20px 20px 0;
+}
+#creatorTabContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+.creatorItems {
+    margin: 40px 0;
+}
+.creatorPage {
+    display: grid;
+    grid-template-columns: 120px 90px;
+    grid-template-rows: 150px;
+    margin: 0 40px 40px 40px;
+    grid-gap: 10px;
+}
+.creatorPageLt {
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px 30px;
+    align-items: flex-end;
+}
+.creatorPageLt > img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+.creatorPageLt > span:nth-child(2) {
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #bb9137;
+    font-weight: 500;
+}
+.creatorPageRt {
+    grid-area: 1 / 2 / 2 / 3;
+    display: grid;
+    grid-template-columns: 90px;
+    grid-template-rows: repeat(6, 25px);
+    grid-template-areas:
+        "creator_desc_date"
+        "creator_desc_work"
+        "creator_desc_reply"
+        "creator_desc_view"
+        "creator_desc_like"
+        "creator_desc_buy";
+}
+.creatorPageRt > div {
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    grid-template-rows: auto;
+}
+.creatorPageRt > div > img {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    padding: 5px 5px 5px 5px;
+    filter: grayscale(1) opacity(0.7);
+    grid-column-start: 1;
+}
+.creatorPageRt > div > span {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 25px;
+    padding-left: 5px;
+    grid-column-start: 2;
+}
+
+.creator_desc_date {
+    grid-area: creator_desc_date;
+}
+.creator_desc_work {
+    grid-area: creator_desc_work;
+}
+.creator_desc_reply {
+    grid-area: creator_desc_reply;
+}
+.creator_desc_view {
+    grid-area: creator_desc_view;
+}
+.creator_desc_like {
+    grid-area: creator_desc_like;
+}
+.creator_desc_buy {
+    grid-area: creator_desc_buy;
+}
+.creator_desc_date {
+    grid-area: creator_desc_date;
+}
+.creatorWorks {
+    grid-row-start: 2;
+    column-width: 105px;
+    column-gap: 10px;
+    margin: 0 40px;
+}
+.creatorWorks > img {
+    display: blocks;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}

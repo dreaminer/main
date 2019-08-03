@@ -1,0 +1,136 @@
+
+/* 상단바 좌측 */
+.signinButton {
+    display: block;
+    background-color: #3c5fa0; 
+    border: 10px;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    padding: 12px;
+    color: #161616;
+    box-sizing: border-box;
+    align-self: center;
+    margin-right: 20px;
+}
+.signinButton:hover {
+	cursor: pointer;
+}
+
+/* 상단바 중앙 */
+.searchBar {
+    display: flex;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+}
+#searchForm {
+    flex: 1 1 400px;
+    justify-self: end;
+    position: relative;
+    z-index: 1;
+    height: 50px;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+#search_bar {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #bbc0ee;
+    border-radius: 13px;
+    text-align: center;
+    outline: none;
+    padding: 0 45px 0 100px;
+}
+#search_bar::placeholder {
+    color: #bbc0ee;
+}
+#search_bar:focus::placeholder {
+    visibility: hidden;
+}
+#search_bar::-webkit-search-cancel-button { display: none; }
+/* 상단바 중앙 우측 검색버튼 */
+
+#searchButton {
+	display: block;
+	position: absolute;
+	top: 35px;
+	right: 30px;
+    width: 20px;
+    height: 20px;
+}
+#searchButton:hover {
+	cursor: pointer;
+}
+/* 상단바 중앙 좌측 옵션버튼 */
+#searchForm > input[type="checkbox"],
+.setting_container > input[type="checkbox"] {
+    -webkit-appearance: none;
+}
+.tag_setting,
+.artist_setting,
+.sub_setting {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: grayscale(100) opacity(0.6);
+}
+.sub_setting {
+    left: 30px;
+}
+.tag_setting {
+    left: 30px;
+}
+.artist_setting {
+    left: 57px;
+}
+.tag_setting > img,
+.artist_setting > img,
+.sub_setting > img {
+    width: 100%;
+    height: 100%;
+}
+input#search_setting:checked + label,
+input#search_tag:checked + .tag_setting,
+input#search_artist:checked + .artist_setting {
+    filter: opacity(1);
+}
+/* 상단바 중앙 서브 컨테이너 */
+.setting_container {
+    position: relative;
+    top: -71px;
+    height: 46px;
+    width: 230px;
+    background-color: rgb(90, 131, 221);
+    border-radius: 13px;
+    padding-left: 13px;
+    display: flex;
+    justify-content: start;
+    z-index: -1;
+}
+.setting_container > label {
+    display: block;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    padding: 12px 5px 8px 5px;
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    cursor: pointer;
+    filter: brightness(10) opacity(0.3);
+}
+.setting_container > label > img {
+    display: block;
+    margin: auto;
+    width: 25px;
+    height: 23px;   
+}
+input#search_setting:checked + label + div.setting_container {
+    animation: setting_popup 0.45s ease;
+    animation-fill-mode: both;
+}
+.setting_container > input:checked + label {
+    filter: brightness(10) opacity(1);
+}

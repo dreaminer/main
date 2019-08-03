@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+	<insert id="createMember" parameterType="Member">
+		INSERT INTO member(emailId, userName, profile, pw, grade, createDate, account, profitSum, badge)
+		VALUES (#{emailId}, #{userName}, #{profile}, #{pw}, 'member', SYSDATE, #{account}, #{profitSum}, 'member')
+	</insert>
+	<select id="signinMember" parameterType="Member" resultType="Member">
+		SELECT * FROM member WHERE emailId = #{emailId} AND pw = #{pw} 
+	</select>
+	<select id="checkMember" parameterType="Member" resultType="Int">
+		SELECT COUNT(*) FROM member WHERE emailId = #{emailId}
+	</select>
+	<select id="checkUsername" parameterType="Member" resultType="Int">
+		SELECT COUNT(*) FROM member WHERE userName = #{userName}
+	</select>
+	<select id="getMemberInfo" parameterType="Member" resultType="Member">
+		SELECT * FROM member WHERE emailId = #{emailId}
+	</select>
+	<select id="getMember" parameterType="String" resultType="Member">
+		SELECT * FROM member WHERE emailId = #{emailId}
+	</select>
+	<update id="updateMember" parameterType="Member">
+		UPDATE member SET userName = #{userName}, pw = #{pw} WHERE emailId = #{emailId}
+	</update>
+	<update id="updateAccount" parameterType="Member">
+		UPDATE member SET account = #{account} WHERE emailId = #{emailId}
+	</update>
+</mapper>

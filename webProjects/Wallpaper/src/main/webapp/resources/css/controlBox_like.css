@@ -1,0 +1,53 @@
+#likeTabContent {
+	width: 300px;
+    display: none;
+    background-color: #ffffff;
+    border-right: 0.5px solid #dadfe8;
+	border-radius: 0 20px 20px 0;
+}
+#likeTabContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+#likeItems {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 15px;
+}
+#likeItems > div {
+    padding: 10px;
+    display: grid;
+    margin: 0 30px;
+    grid-template-columns: auto 1fr 20px;
+    grid-template-rows: 50px;
+    background-color: white;
+    box-shadow: 0px 3px 5px #cfcfcf;
+    border-radius: 5px;
+}
+#likeItems > div:hover,
+#likeItems > div > img.cancle:hover {
+	cursor: pointer;
+}
+#likeItems > div > img {
+    display: block;
+    height: 50px;
+    border-radius: 5px;
+    max-width: 90px;
+}
+#likeItems > div > span {
+    display: block;
+    line-height: 50px;
+    overflow: hidden;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0 10px;
+}
+#likeItems > div > img.cancle {
+    display: block;
+    width: 20px;
+    height: 20px;
+    align-self: center;
+}

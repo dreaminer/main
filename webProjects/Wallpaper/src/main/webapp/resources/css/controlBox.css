@@ -1,0 +1,40 @@
+@import url("controlBoxPanel.css");
+@import url("controlBox_info.css");
+@import url("controlBox_account.css");
+@import url("controlBox_like.css");
+@import url("controlBox_follow.css");
+@import url("controlBox_gallery.css");
+@import url("controlBox_creator.css");
+@import url("controlBox_upload.css");
+@import url("controlBox_upload2.css");
+
+#controlBox {
+    flex: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: none;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: auto;
+}
+
+/* 유저정보 내용 */
+/* .tabContent {
+    width: 350px;
+    grid-row-start: 1;
+    grid-row-end: -1;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: none;
+    background-color: #ffffff;
+} */
+/* #controlTabBox > div.tabContent {
+    display: none;
+    padding: 0;
+    margin: 0;
+    width: 350px;
+    height: 100%;
+    border-right: 0.5px solid #8a99c0;
+    border-radius: 0 20px 20px 0;
+} */
