@@ -51,7 +51,7 @@
 		<dependency>
         	<groupId>org.mybatis</groupId>
         	<artifactId>mybatis</artifactId>
-        	<version>3.2.3</version>
+        	<version>3.5.6</version>
         </dependency>
 		<!-- mybatis-spring 모듈은 스프링의 dataSource 및 transaction관리기능을
 		mybatis와 연동하는데에 필요한 기능을 가지고 있다 -->
